@@ -14,18 +14,18 @@ jobs:
   pool:
     vmImage: ubuntu-latest
   variables:
-    az_region: eastus
+    az_region: EastUS
     resource_group_name: JessAKSCICD
     subscription: 5db7a2e4-25f1-4c0d-a100-d13e44d1f64f
     key_vault_name: jesskeyvault1
-    sa_prefix: AksTerraformSPN
+    sa_prefix: jessstorageacc1
     sa_container_name: jesscont
     tfstateFile: terraform.tfstate
 
   steps:
   - task: AzureCLI@2
     inputs:
-      azureSubscription: '5db7a2e4-25f1-4c0d-a100-d13e44d1f64f' #replace with your service connection - azure resource manager service principal
+      azureSubscription: 'd6f5f118-98a8-4d88-8883-1553472f5005' #replace with your service connection - azure resource manager service principal
       scriptType: 'bash'
       scriptLocation: 'inlineScript'
       inlineScript: |
@@ -56,7 +56,7 @@ jobs:
       command: 'plan'
       workingDirectory: '$(System.DefaultWorkingDirectory)/tf-files'
       commandOptions: '-out=tfplan'
-      environmentServiceNameAzureRM: 'akrish-poc-sp'
+      environmentServiceNameAzureRM: 'spnAKS'
 
   - task: TerraformTaskV3@3
     displayName: Terraform Apply
@@ -65,4 +65,4 @@ jobs:
       command: 'apply'
       workingDirectory: '$(System.DefaultWorkingDirectory)/tf-files'
       commandOptions: 'tfplan'
-      environmentServiceNameAzureRM: 'AKSSvcconn'
+      environmentServiceNameAzureRM: 'spnAKS'
