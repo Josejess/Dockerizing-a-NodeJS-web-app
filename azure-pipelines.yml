@@ -43,7 +43,7 @@ jobs:
       provider: 'azurerm'
       command: 'init'
       workingDirectory: '$(System.DefaultWorkingDirectory)/tf-files'
-      backendServiceArm: 'AKSSvcconn'
+      backendServiceArm: 'spnAKS'
       backendAzureRmResourceGroupName: '$(resource_group_name)'
       backendAzureRmStorageAccountName: '$(sa_prefix)'
       backendAzureRmContainerName: '$(sa_container_name)'
