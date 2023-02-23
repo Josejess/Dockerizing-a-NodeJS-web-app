@@ -15,7 +15,7 @@ jobs:
     vmImage: ubuntu-latest
   variables:
     az_region: EastUS
-    resource_group_name: JessAKSCICD
+    resource_group_name: AksTerraform-RG
     subscription: 5db7a2e4-25f1-4c0d-a100-d13e44d1f64f
     key_vault_name: jesskeyvault1
     sa_prefix: jessstorageacc1
