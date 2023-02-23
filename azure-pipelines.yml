@@ -25,7 +25,7 @@ jobs:
   steps:
   - task: AzureCLI@2
     inputs:
-      azureSubscription: 'AksTerraformSPN' #replace with your service connection - azure resource manager service principal
+      azureSubscription: 'spnAKS' #replace with your service connection - azure resource manager service principal
       scriptType: 'bash'
       scriptLocation: 'inlineScript'
       inlineScript: |
