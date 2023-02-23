@@ -21,6 +21,7 @@ jobs:
     sa_prefix: jessstorageacc1
     sa_container_name: jesscont
     tfstateFile: terraform.tfstate
+    service-connection: spnAKS
 
   steps:
   - task: AzureCLI@2
@@ -43,7 +44,7 @@ jobs:
       provider: 'azurerm'
       command: 'init'
       workingDirectory: '$(System.DefaultWorkingDirectory)/tf-files'
-      backendServiceArm: 'spnAKS'
+      backendServiceArm: '$(service-connection)'
       backendAzureRmResourceGroupName: '$(resource_group_name)'
       backendAzureRmStorageAccountName: '$(sa_prefix)'
       backendAzureRmContainerName: '$(sa_container_name)'
