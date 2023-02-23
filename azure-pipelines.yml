@@ -16,7 +16,7 @@ jobs:
   variables:
     az_region: EastUS
     resource_group_name: JessAKSCICD
-    subscription: d6f5f118-98a8-4d88-8883-1553472f5005
+    subscription: 5db7a2e4-25f1-4c0d-a100-d13e44d1f64f
     key_vault_name: jesskeyvault1
     sa_prefix: jessstorageacc1
     sa_container_name: jesscont
